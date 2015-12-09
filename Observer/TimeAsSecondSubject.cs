@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Observer
 {
-    class ConcreteSubject : Subject
+    class TimeAsSecondSubject : Subject
     {
         private int m_timeAsSecond = DateTime.Now.Second;
         private object m_lock = new object();

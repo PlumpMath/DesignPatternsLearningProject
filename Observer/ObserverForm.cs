@@ -13,7 +13,7 @@ namespace Observer
     public partial class ObserverForm : Form
     {
         private ConcreteObserver m_concreteObserver = null;
-        private ConcreteSubject m_concreteSubject = null;
+        private TimeAsSecondSubject m_concreteSubject = null;
 
         public ObserverForm()
         {
@@ -24,7 +24,7 @@ namespace Observer
         {
             if (buttonDoObserve.Text.Contains("Do Observe"))
             {
-                m_concreteSubject = new ConcreteSubject();
+                m_concreteSubject = new TimeAsSecondSubject();
                 m_concreteObserver = new ConcreteObserver("Observe On Trace");
 
                 m_concreteSubject.Attach(m_concreteObserver);
