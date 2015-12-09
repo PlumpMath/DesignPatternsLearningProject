@@ -32,7 +32,7 @@
             this.buttonDoObserve = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.watch1_button = new System.Windows.Forms.Button();
+            this.watch1_button = new ButtonObserver();
             this.labelObserveState = new Observer.LabelObserver();
             this.textBoxTimeAsSecond = new Observer.TextboxObserver();
             this.SuspendLayout();
@@ -112,7 +112,7 @@
         private System.Windows.Forms.Label label1;
         private TextboxObserver textBoxTimeAsSecond;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button watch1_button;
+        private ButtonObserver watch1_button;
         private LabelObserver labelObserveState;
     }
 }

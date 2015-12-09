@@ -22,6 +22,7 @@ namespace Observer
 
             m_observerState.Attach(this);
             m_observerState.Attach(labelObserveState);
+            m_observerState.Attach(watch1_button);
         }
 
         public void Update(object sub)
@@ -35,7 +36,7 @@ namespace Observer
                 m_concreteSubject = null;
                 m_concreteObserver = null;
 
-                watch1_button.Enabled = false;
+                //watch1_button.Enabled = false;
                 buttonDoObserve.Text = "Do Observe";
 
             }
@@ -47,7 +48,7 @@ namespace Observer
                 m_concreteSubject.Attach(m_concreteObserver);
                 m_concreteSubject.StartUpdateByMyself();
 
-                watch1_button.Enabled = true;
+                //watch1_button.Enabled = true;
                 buttonDoObserve.Text = "Stop Observe";
 
             }
