@@ -9,9 +9,9 @@ namespace Observer
 {
     class TextboxObserver : TextBox, IObserver
     {
-        public void Update(Subject sub)
+        public void Update(object sub)
         {
-            this.SetText(sub.TimeAsSecond.ToString());
+            this.SetText(((Subject)sub).TimeAsSecond.ToString());
         }
 
         // This delegate enables asynchronous calls for setting

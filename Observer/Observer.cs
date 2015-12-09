@@ -8,6 +8,6 @@ namespace Observer
 {
     interface IObserver
     {
-       void Update(Subject sub);
+       void Update(object sub);
     }
 }
