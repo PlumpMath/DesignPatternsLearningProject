@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseSubject.cs" />
     <Compile Include="ConcreteObserver.cs" />
     <Compile Include="ConcreteSubject.cs" />
     <Compile Include="Observer.cs" />
