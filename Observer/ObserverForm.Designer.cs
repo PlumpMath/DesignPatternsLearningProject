@@ -31,9 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.buttonDoObserve = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxTimeAsSecond = new Observer.TextboxObserver();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.watch1_button = new System.Windows.Forms.Button();
+            this.labelObserveState = new LabelObserver();
+            this.textBoxTimeAsSecond = new Observer.TextboxObserver();
             this.SuspendLayout();
             // 
             // buttonDoObserve
@@ -55,14 +56,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "TimeAsSecond";
             // 
-            // textBoxTimeAsSecond
-            // 
-            this.textBoxTimeAsSecond.Location = new System.Drawing.Point(148, 28);
-            this.textBoxTimeAsSecond.Name = "textBoxTimeAsSecond";
-            this.textBoxTimeAsSecond.ReadOnly = true;
-            this.textBoxTimeAsSecond.Size = new System.Drawing.Size(206, 20);
-            this.textBoxTimeAsSecond.TabIndex = 2;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -78,11 +71,30 @@
             this.watch1_button.UseVisualStyleBackColor = true;
             this.watch1_button.Click += new System.EventHandler(this.watch1_button_Click);
             // 
+            // labelObserveState
+            // 
+            this.labelObserveState.AutoSize = true;
+            this.labelObserveState.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelObserveState.Location = new System.Drawing.Point(189, 94);
+            this.labelObserveState.Name = "labelObserveState";
+            this.labelObserveState.Size = new System.Drawing.Size(121, 31);
+            this.labelObserveState.TabIndex = 3;
+            this.labelObserveState.Text = "Standby";
+            // 
+            // textBoxTimeAsSecond
+            // 
+            this.textBoxTimeAsSecond.Location = new System.Drawing.Point(148, 28);
+            this.textBoxTimeAsSecond.Name = "textBoxTimeAsSecond";
+            this.textBoxTimeAsSecond.ReadOnly = true;
+            this.textBoxTimeAsSecond.Size = new System.Drawing.Size(206, 20);
+            this.textBoxTimeAsSecond.TabIndex = 2;
+            // 
             // ObserverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 261);
+            this.Controls.Add(this.labelObserveState);
             this.Controls.Add(this.textBoxTimeAsSecond);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.watch1_button);
@@ -101,6 +113,7 @@
         private TextboxObserver textBoxTimeAsSecond;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button watch1_button;
+        private LabelObserver labelObserveState;
     }
 }
 

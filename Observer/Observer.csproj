@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConcreteObserver.cs" />
+    <Compile Include="LabelObserver.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Observer.cs" />
     <Compile Include="ObserverForm.cs">
       <SubType>Form</SubType>

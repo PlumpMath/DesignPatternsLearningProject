@@ -11,13 +11,13 @@
   <Class Name="Observer.ObserverForm">
     <Position X="11.5" Y="2" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAgBAAAACAIAACAwAAIAAAQAgAAAAAQAA=</HashCode>
+      <HashCode>AAQAAAAAACAAgBAAAACAIAACAwIAIAAAQAgAAAAAQCA=</HashCode>
       <FileName>ObserverForm.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Observer.Program" Collapsed="true">
-    <Position X="17" Y="2.5" Width="1.5" />
+    <Position X="20" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
@@ -46,13 +46,13 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Observer.Properties.Resources" Collapsed="true">
-    <Position X="17" Y="1.5" Width="1.5" />
+    <Position X="20" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Observer.Properties.Settings" Collapsed="true">
-    <Position X="17" Y="0.5" Width="1.5" />
+    <Position X="20" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
@@ -71,12 +71,27 @@
       <FileName>ObserverStateSubject.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Observer.LabelObserver">
+    <Position X="15.75" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LabelObserver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="Observer.IObserver">
-    <Position X="6.25" Y="0.5" Width="8.25" />
+    <Position X="6.25" Y="0.5" Width="12.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Observer.cs</FileName>
     </TypeIdentifier>
   </Interface>
+  <Enum Name="Observer.ObserverState" Collapsed="true">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ObserverStateSubject.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

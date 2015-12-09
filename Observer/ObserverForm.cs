@@ -21,6 +21,7 @@ namespace Observer
             InitializeComponent();
 
             m_observerState.Attach(this);
+            m_observerState.Attach(labelObserveState);
         }
 
         public void Update(object sub)
