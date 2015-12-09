@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.buttonDoObserve = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxTimeAsSecond = new System.Windows.Forms.TextBox();
+            this.textBoxTimeAsSecond = new Observer.TextboxObserver();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.watch1_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -73,7 +73,7 @@
             this.watch1_button.Name = "watch1_button";
             this.watch1_button.Size = new System.Drawing.Size(75, 23);
             this.watch1_button.TabIndex = 0;
-            this.watch1_button.Text = "Watch";
+            this.watch1_button.Text = "Do Watch";
             this.watch1_button.UseVisualStyleBackColor = true;
             this.watch1_button.Click += new System.EventHandler(this.watch1_button_Click);
             // 
@@ -97,7 +97,7 @@
 
         private System.Windows.Forms.Button buttonDoObserve;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxTimeAsSecond;
+        private TextboxObserver textBoxTimeAsSecond;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button watch1_button;
     }

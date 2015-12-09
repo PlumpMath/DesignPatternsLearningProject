@@ -51,16 +51,17 @@ namespace Observer
 
         private void watch1_button_Click(object sender, EventArgs e)
         {
-            if (watch1_button.Text.Contains("Watch"))
+            if (watch1_button.Text.Contains("Do Watch"))
             {
-
+                m_concreteSubject.Attach(textBoxTimeAsSecond);
 
                 watch1_button.Text = "Stop Watch";
             }
             else
             {
+                m_concreteSubject.Detach(textBoxTimeAsSecond);
 
-                watch1_button.Text = "Watch";
+                watch1_button.Text = "Do Watch";
             }
         }
     }
