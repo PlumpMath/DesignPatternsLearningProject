@@ -11,7 +11,7 @@ namespace Observer
     {
         public void Update(object sub)
         {
-            this.SetText(((TimeAsSecondSubject)sub).TimeAsSecond.ToString());
+            this.SetText(((TimeAsSecondSubject)sub).CurrentTime.ToString());
         }
 
         // This delegate enables asynchronous calls for setting

@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.watch1_button = new System.Windows.Forms.Button();
-            this.labelObserveState = new LabelObserver();
+            this.labelObserveState = new Observer.LabelObserver();
             this.textBoxTimeAsSecond = new Observer.TextboxObserver();
             this.SuspendLayout();
             // 
@@ -52,9 +52,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(28, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "TimeAsSecond";
+            this.label1.Text = "Current Time";
             // 
             // timer1
             // 

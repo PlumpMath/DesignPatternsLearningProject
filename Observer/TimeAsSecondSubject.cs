@@ -9,18 +9,19 @@ namespace Observer
 {
     class TimeAsSecondSubject : Subject
     {
-        private int m_timeAsSecond = DateTime.Now.Second;
+        private DateTime m_currentTime = DateTime.Now;
         private object m_lock = new object();
 
         private Timer m_timer = null;
 
-        public int TimeAsSecond
+        public string CurrentTime
         {
             get
             {
                 lock (m_lock)
                 {
-                    return m_timeAsSecond;
+                    return m_currentTime.Year + "-" + m_currentTime.Month + "-" + m_currentTime.Day + " "
+                        + m_currentTime.Hour + ":" + m_currentTime.Minute + ":" + m_currentTime.Second;
                 }
             }
         }
@@ -38,14 +39,19 @@ namespace Observer
 
         private void TryToUpdateTimeAsSecond(object o)
         {
-            int newTimeAsSecond = DateTime.Now.Second;
+            DateTime newTime = DateTime.Now;
             bool toUpdate = false;
 
             lock (m_lock)
             {
-                if (newTimeAsSecond != m_timeAsSecond)
+                if (    newTime.Second != m_currentTime.Second
+                    ||  newTime.Minute != m_currentTime.Minute
+                    ||  newTime.Hour != m_currentTime.Hour
+                    ||  newTime.Day != m_currentTime.Day
+                    ||  newTime.Month != m_currentTime.Month
+                    ||  newTime.Year != m_currentTime.Year)
                 {
-                    m_timeAsSecond = newTimeAsSecond;
+                    m_currentTime = newTime;
                     toUpdate = true;
                 }
             }
