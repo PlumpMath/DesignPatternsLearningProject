@@ -25,7 +25,7 @@ namespace Observer
             if (buttonDoObserve.Text.Contains("Do Observe"))
             {
                 m_concreteSubject = new ConcreteSubject();
-                m_concreteObserver = new ConcreteObserver();
+                m_concreteObserver = new ConcreteObserver("Observe On Trace");
 
                 m_concreteSubject.Attach(m_concreteObserver);
                 m_concreteSubject.StartUpdateByMyself();
