@@ -13,7 +13,7 @@ namespace Observer
     public partial class ObserverForm : Form, IObserver
     {
         private ConcreteObserver m_concreteObserver = null;
-        private TimeAsSecondSubject m_concreteSubject = null;
+        private CurrentTimeSubject m_concreteSubject = null;
         private ObserverStateSubject m_observerState = new ObserverStateSubject();
 
         public ObserverForm()
@@ -41,7 +41,7 @@ namespace Observer
             }
             else
             {
-                m_concreteSubject = new TimeAsSecondSubject();
+                m_concreteSubject = new CurrentTimeSubject();
                 m_concreteObserver = new ConcreteObserver("Observe On Trace");
 
                 m_concreteSubject.Attach(m_concreteObserver);

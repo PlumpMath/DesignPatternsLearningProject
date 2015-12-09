@@ -18,7 +18,7 @@ namespace Observer
 
         public void Update(object sub)
         {
-            Trace.WriteLine(Name + " see " + ((TimeAsSecondSubject)sub).CurrentTime.ToString());
+            Trace.WriteLine(Name + " see " + ((CurrentTimeSubject)sub).CurrentTime.ToString());
         }
 
         public string Name

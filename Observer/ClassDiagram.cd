@@ -57,10 +57,10 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Class Name="Observer.TimeAsSecondSubject">
+  <Class Name="Observer.CurrentTimeSubject">
     <Position X="0.5" Y="3" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAAAAAAAAAEAAAAQAAgAAEAEAAAAAAAQ=</HashCode>
+      <HashCode>ABAAAAQAAAAAAAAAAAAAAAAAAAAAAgAAEAEAgAAAAAQ=</HashCode>
       <FileName>TimeAsSecondSubject.cs</FileName>
     </TypeIdentifier>
   </Class>
