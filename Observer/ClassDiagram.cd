@@ -79,6 +79,14 @@
       <FileName>CurrentTimeSubject.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Observer.ButtonObserver">
+    <Position X="15.75" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ButtonObserver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
   <Interface Name="Observer.IObserver">
     <Position X="6.25" Y="0.5" Width="12.5" />
     <TypeIdentifier>
