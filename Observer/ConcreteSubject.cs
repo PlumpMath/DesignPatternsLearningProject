@@ -13,8 +13,15 @@ namespace Observer
         private object m_lock = new object();
 
         private Timer m_timer = null;
+        public override void Notify()
+        {
+            foreach (IObserver item in m_objectList)
+            {
+                item.Update(this);
+            }
+        }
 
-        public override int TimeAsSecond
+        public int TimeAsSecond
         {
             get
             {

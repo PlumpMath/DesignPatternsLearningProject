@@ -6,15 +6,28 @@ using System.Threading.Tasks;
 
 namespace Observer
 {
-    class Subject : BaseSubject
+    class Subject
     {
-        public virtual int TimeAsSecond { get; }
-        public override void Notify()
+        protected List<IObserver> m_objectList = new List<IObserver>();
+
+        public void Attach(IObserver obj)
         {
-            foreach (IObserver item in m_objectList)
-            {
-                item.Update(this);
-            }
+            m_objectList.Add(obj);
+        }
+
+        public void Detach(IObserver obj)
+        {
+            m_objectList.Remove(obj);
+        }
+
+        public void DetachAll()
+        {
+            m_objectList.Clear();
+        }
+
+        public virtual void Notify()
+        {
+
         }
     }
 }
