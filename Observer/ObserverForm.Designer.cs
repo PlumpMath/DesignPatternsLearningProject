@@ -30,76 +30,73 @@
         {
             this.components = new System.ComponentModel.Container();
             this.buttonDoObserve = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.watch1_button = new ButtonObserver();
             this.labelObserveState = new Observer.LabelObserver();
             this.textBoxTimeAsSecond = new Observer.TextboxObserver();
+            this.watch1_button = new Observer.ButtonObserver();
             this.SuspendLayout();
             // 
             // buttonDoObserve
             // 
-            this.buttonDoObserve.Location = new System.Drawing.Point(165, 205);
+            this.buttonDoObserve.Font = new System.Drawing.Font("Arial", 14F);
+            this.buttonDoObserve.Location = new System.Drawing.Point(183, 194);
+            this.buttonDoObserve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonDoObserve.Name = "buttonDoObserve";
-            this.buttonDoObserve.Size = new System.Drawing.Size(75, 23);
+            this.buttonDoObserve.Size = new System.Drawing.Size(128, 41);
             this.buttonDoObserve.TabIndex = 0;
             this.buttonDoObserve.Text = "Do Observe";
             this.buttonDoObserve.UseVisualStyleBackColor = true;
             this.buttonDoObserve.Click += new System.EventHandler(this.buttonDoObserve_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Current Time";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // watch1_button
-            // 
-            this.watch1_button.Enabled = false;
-            this.watch1_button.Location = new System.Drawing.Point(381, 28);
-            this.watch1_button.Name = "watch1_button";
-            this.watch1_button.Size = new System.Drawing.Size(75, 23);
-            this.watch1_button.TabIndex = 0;
-            this.watch1_button.Text = "Do Watch";
-            this.watch1_button.UseVisualStyleBackColor = true;
-            this.watch1_button.Click += new System.EventHandler(this.watch1_button_Click);
-            // 
             // labelObserveState
             // 
             this.labelObserveState.AutoSize = true;
-            this.labelObserveState.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelObserveState.Location = new System.Drawing.Point(189, 94);
+            this.labelObserveState.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelObserveState.Location = new System.Drawing.Point(162, 105);
             this.labelObserveState.Name = "labelObserveState";
-            this.labelObserveState.Size = new System.Drawing.Size(121, 31);
+            this.labelObserveState.Size = new System.Drawing.Size(173, 46);
             this.labelObserveState.TabIndex = 3;
             this.labelObserveState.Text = "Standby";
             // 
             // textBoxTimeAsSecond
             // 
-            this.textBoxTimeAsSecond.Location = new System.Drawing.Point(148, 28);
+            this.textBoxTimeAsSecond.Location = new System.Drawing.Point(125, 37);
+            this.textBoxTimeAsSecond.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxTimeAsSecond.Name = "textBoxTimeAsSecond";
             this.textBoxTimeAsSecond.ReadOnly = true;
-            this.textBoxTimeAsSecond.Size = new System.Drawing.Size(206, 20);
+            this.textBoxTimeAsSecond.Size = new System.Drawing.Size(240, 22);
             this.textBoxTimeAsSecond.TabIndex = 2;
+            // 
+            // watch1_button
+            // 
+            this.watch1_button.Enabled = false;
+            this.watch1_button.Location = new System.Drawing.Point(384, 26);
+            this.watch1_button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.watch1_button.Name = "watch1_button";
+            this.watch1_button.Size = new System.Drawing.Size(87, 45);
+            this.watch1_button.TabIndex = 0;
+            this.watch1_button.Text = "Do Watch";
+            this.watch1_button.UseVisualStyleBackColor = true;
+            this.watch1_button.Click += new System.EventHandler(this.watch1_button_Click);
             // 
             // ObserverForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 261);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(496, 321);
             this.Controls.Add(this.labelObserveState);
             this.Controls.Add(this.textBoxTimeAsSecond);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.watch1_button);
             this.Controls.Add(this.buttonDoObserve);
+            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ObserverForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Observer";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,7 +106,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonDoObserve;
-        private System.Windows.Forms.Label label1;
         private TextboxObserver textBoxTimeAsSecond;
         private System.Windows.Forms.Timer timer1;
         private ButtonObserver watch1_button;
