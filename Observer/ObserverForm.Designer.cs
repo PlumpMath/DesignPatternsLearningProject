@@ -69,6 +69,7 @@
             // 
             // watch1_button
             // 
+            this.watch1_button.Enabled = false;
             this.watch1_button.Location = new System.Drawing.Point(381, 28);
             this.watch1_button.Name = "watch1_button";
             this.watch1_button.Size = new System.Drawing.Size(75, 23);
