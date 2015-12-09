@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Observer
 {
-    class ConcreteObserver : Observer
+    class ConcreteObserver : IObserver
     {
-        public override void Update(Subject sub)
+        public void Update(Subject sub)
         {
             Trace.WriteLine("I see " + sub.TimeAsSecond.ToString());
         }

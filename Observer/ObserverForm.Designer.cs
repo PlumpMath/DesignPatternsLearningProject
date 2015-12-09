@@ -75,7 +75,7 @@
             this.watch1_button.TabIndex = 0;
             this.watch1_button.Text = "Watch";
             this.watch1_button.UseVisualStyleBackColor = true;
-            this.watch1_button.Click += new System.EventHandler(this.buttonDoObserve_Click);
+            this.watch1_button.Click += new System.EventHandler(this.watch1_button_Click);
             // 
             // ObserverForm
             // 

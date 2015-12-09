@@ -48,5 +48,20 @@ namespace Observer
         {
 
         }
+
+        private void watch1_button_Click(object sender, EventArgs e)
+        {
+            if (watch1_button.Text.Contains("Watch"))
+            {
+
+
+                watch1_button.Text = "Stop Watch";
+            }
+            else
+            {
+
+                watch1_button.Text = "Watch";
+            }
+        }
     }
 }

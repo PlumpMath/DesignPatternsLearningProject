@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Observer
 {
-    abstract class Observer
+    interface IObserver
     {
-        public abstract void Update(Subject sub);
+       void Update(Subject sub);
     }
 }
