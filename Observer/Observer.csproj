@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConcreteObserver.cs" />
+    <Compile Include="CurrentTimeSubject.cs" />
     <Compile Include="LabelObserver.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -64,7 +65,6 @@
     <Compile Include="TextboxObserver.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="TimeAsSecondSubject.cs" />
     <EmbeddedResource Include="ObserverForm.resx">
       <DependentUpon>ObserverForm.cs</DependentUpon>
     </EmbeddedResource>
