@@ -9,7 +9,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Observer.ConcreteSubject">
-    <Position X="0.75" Y="3.5" Width="2.5" />
+    <Position X="0.5" Y="3" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAAAAAEAAAAQAAgBAEAEAAAAAAAQ=</HashCode>
       <FileName>ConcreteSubject.cs</FileName>
@@ -30,7 +30,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Observer.Subject">
-    <Position X="0.5" Y="0.75" Width="3.25" />
+    <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAAACIAAAABAAAAAAAAQAAA=</HashCode>
       <FileName>Subject.cs</FileName>
