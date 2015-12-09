@@ -25,7 +25,7 @@ namespace Observer
             m_objectList.Clear();
         }
 
-        public void Notify()
+        public virtual void Notify()
         {
             foreach (IObserver item in m_objectList)
             {

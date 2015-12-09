@@ -10,19 +10,35 @@ using System.Windows.Forms;
 
 namespace Observer
 {
-    public partial class ObserverForm : Form
+    public partial class ObserverForm : Form, IObserver
     {
         private ConcreteObserver m_concreteObserver = null;
         private TimeAsSecondSubject m_concreteSubject = null;
+        private ObserverStateSubject m_observerState = new ObserverStateSubject();
 
         public ObserverForm()
         {
             InitializeComponent();
+
+            m_observerState.Attach(this);
         }
 
-        private void buttonDoObserve_Click(object sender, EventArgs e)
+        public void Update(object sub)
         {
-            if (buttonDoObserve.Text.Contains("Do Observe"))
+            ObserverState newState = (ObserverState)sub;
+
+            if (newState == ObserverState.Standby)
+            {
+                m_concreteSubject.DetachAll();
+                m_concreteSubject.StopUpdateByMyself();
+                m_concreteSubject = null;
+                m_concreteObserver = null;
+
+                watch1_button.Enabled = false;
+                buttonDoObserve.Text = "Do Observe";
+
+            }
+            else
             {
                 m_concreteSubject = new TimeAsSecondSubject();
                 m_concreteObserver = new ConcreteObserver("Observe On Trace");
@@ -32,18 +48,38 @@ namespace Observer
 
                 watch1_button.Enabled = true;
                 buttonDoObserve.Text = "Stop Observe";
+
+            }
+        }
+
+        private void buttonDoObserve_Click(object sender, EventArgs e)
+        {
+            if (buttonDoObserve.Text.Contains("Do Observe"))
+            {
+                //m_concreteSubject = new TimeAsSecondSubject();
+                //m_concreteObserver = new ConcreteObserver("Observe On Trace");
+
+                //m_concreteSubject.Attach(m_concreteObserver);
+                //m_concreteSubject.StartUpdateByMyself();
+
+                //watch1_button.Enabled = true;
+                //buttonDoObserve.Text = "Stop Observe";
+
+                m_observerState.State = ObserverState.Observing;
             }
             else
             {
-                m_concreteSubject.DetachAll();
-                m_concreteSubject.StopUpdateByMyself();
-                m_concreteSubject = null;
-                m_concreteObserver = null;
+                //m_concreteSubject.DetachAll();
+                //m_concreteSubject.StopUpdateByMyself();
+                //m_concreteSubject = null;
+                //m_concreteObserver = null;
 
-                watch1_button.Enabled = false;
-                buttonDoObserve.Text = "Do Observe";
+                //watch1_button.Enabled = false;
+                //buttonDoObserve.Text = "Do Observe";
+
+                m_observerState.State = ObserverState.Standby;
             }
-
+            m_observerState.Notify();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
