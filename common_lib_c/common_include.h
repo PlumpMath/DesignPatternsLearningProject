@@ -19,6 +19,7 @@ Description	: include most of the .h files here, easy to use
 #include <fcntl.h>
 #include <errno.h>
 
+//for different platforms
 #if defined(WIN32)
 //TODO: add headers which only windows have here
 #include <windows.h>
