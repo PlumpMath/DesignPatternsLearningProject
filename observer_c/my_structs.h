@@ -1,3 +1,9 @@
+/************************************************************************************
+Copyright	:
+Author		: wangyoucao577@gmail.com
+Date		: 2015-12-19
+Description	: define my structs for the observer design
+************************************************************************************/
 
 #ifndef __MY_STRUCTS_H__
 #define __MY_STRUCTS_H__
