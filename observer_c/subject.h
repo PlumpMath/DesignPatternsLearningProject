@@ -5,8 +5,8 @@ Date		: 2015-12-19
 Description	: define my structs for the observer design
 ************************************************************************************/
 
-#ifndef __MY_STRUCTS_H__
-#define __MY_STRUCTS_H__
+#ifndef __SUBJECT_H__
+#define __SUBJECT_H__
 
 typedef int(*subject_update_callback)(void* param);
 
@@ -18,7 +18,7 @@ struct subject_t
 
 struct subject_model_t
 {
-	void* callback_list;
+	struct list_t* callback_list;
 
 	int (*attach_observer)(subject_update_callback update);
 	int (*detach_observer)(subject_update_callback update);
@@ -26,6 +26,8 @@ struct subject_model_t
 	int (*notify)(void* subject);
 };
 
-#endif // __MY_STRUCTS_H__
+int initialize_subject_model_t(struct subject_model_t* subject_model);
+
+#endif // __SUBJECT_H__
 
 
