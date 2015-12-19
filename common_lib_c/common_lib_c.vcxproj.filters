@@ -18,5 +18,19 @@
     <ClInclude Include="common_include.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common_error_code.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common_macro.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
