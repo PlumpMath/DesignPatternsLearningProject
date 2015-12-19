@@ -13,14 +13,22 @@ static int list_t_push(struct list_t *list, node_t* node)
 	assert(NULL != list);
 	assert(NULL != node);
 
-	struct node_t* last_node = list->head;
-	while (NULL != last_node->next)
-	{
-		last_node = last_node->next;
-	}
-
-	last_node->next = node;
 	node->next = NULL;
+
+	struct node_t* last_node = list->head;
+	if (NULL == last_node)
+	{
+		last_node = node;
+	}
+	else
+	{
+		while (NULL != last_node->next)
+		{
+			last_node = last_node->next;
+		}
+
+		last_node->next = node;
+	}
 
 	return NO_ERROR;
 }
