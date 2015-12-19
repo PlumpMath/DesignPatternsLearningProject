@@ -24,13 +24,6 @@ int initialize_subject_model_t(struct subject_model_t* subject_model);
 
 
 
-struct my_subject_t
-{
-	int my_id;
-	char my_description[128];
-};
-
-
 #endif // __SUBJECT_H__
 
 

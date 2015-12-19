@@ -58,6 +58,7 @@ int initialize_subject_model_t(struct subject_model_t* subject_model)
 {
 	assert(NULL != subject_model);
 
+	subject_model->callback_list = (struct list_t*)malloc(sizeof(struct list_t));
 	initialize_list_t(subject_model->callback_list);
 
 	//initialize interfaces
