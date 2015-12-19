@@ -20,7 +20,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="my_structs.h">
+    <ClInclude Include="subject.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

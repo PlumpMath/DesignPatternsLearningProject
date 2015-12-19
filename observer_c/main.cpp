@@ -6,7 +6,7 @@ Description	: main
 ************************************************************************************/
 
 #include "common_include.h"
-#include "my_structs.h"
+#include "subject.h"
 
 int main()
 {

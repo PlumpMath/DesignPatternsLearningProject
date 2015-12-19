@@ -12,12 +12,18 @@ typedef int(*subject_update_callback)(void* param);
 
 struct subject_t
 {
+	int my_id;
+	char my_description[128];
+};
+
+struct subject_model_t
+{
 	void* callback_list;
 
 	int (*attach_observer)(subject_update_callback update);
 	int (*detach_observer)(subject_update_callback update);
 	int (*detach_all)();
-	int (*notify)();
+	int (*notify)(void* subject);
 };
 
 #endif // __MY_STRUCTS_H__
