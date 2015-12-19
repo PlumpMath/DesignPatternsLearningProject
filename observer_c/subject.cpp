@@ -44,7 +44,7 @@ static int notify(struct subject_model_t* subject_model, void* subject)
 	for (int i = 0; i < count; ++i)
 	{
 		struct node_t* curr_node = NULL; 
-		int retval = subject_model->callback_list->peek(subject_model->callback_list, i, curr_node);
+		int retval = subject_model->callback_list->peek(subject_model->callback_list, i, &curr_node);
 		assert(NO_ERROR == retval);
 
 		int callback_retval = ((subject_update_callback)(curr_node->data))(subject);

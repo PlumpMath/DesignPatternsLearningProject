@@ -15,13 +15,13 @@ static int list_t_push(struct list_t *list, node_t* node)
 
 	node->next = NULL;
 
-	struct node_t* last_node = list->head;
-	if (NULL == last_node)
+	if (NULL == list->head)
 	{
-		last_node = node;
+		list->head = node;
 	}
 	else
 	{
+		struct node_t* last_node = list->head;
 		while (NULL != last_node->next)
 		{
 			last_node = last_node->next;
@@ -33,13 +33,13 @@ static int list_t_push(struct list_t *list, node_t* node)
 	return NO_ERROR;
 }
 
-static int list_t_pop(struct list_t *list, node_t* node)
+static int list_t_pop(struct list_t *list, node_t** node)
 {
 	assert(NULL != list);	
-	assert(NULL == node);
+	assert(NULL != node && NULL == *node);
 
-	node = list->head;
-	if (NULL == node)
+	*node = list->head;
+	if (NULL == *node)
 	{
 		return COMMON_ERROR_CODE_FIFO_EMPTY;
 	}
@@ -49,10 +49,10 @@ static int list_t_pop(struct list_t *list, node_t* node)
 
 }
 
-static int list_t_peek(struct list_t *list, int index, node_t* node)
+static int list_t_peek(struct list_t *list, int index, node_t** node)
 {
 	assert(NULL != list);
-	assert(NULL == node);
+	assert(NULL != node && NULL == *node);
 	assert(index >= 0);
 
 	if (index >= list->count(list))
@@ -66,10 +66,11 @@ static int list_t_peek(struct list_t *list, int index, node_t* node)
 	{
 		if (curr_node_index == index)
 		{
-			node = curr_node;
+			*node = curr_node;
 			break;
 		}
 		curr_node = curr_node->next;
+		++curr_node_index;
 	} while (NULL != curr_node);
 
 	return NO_ERROR;

@@ -30,7 +30,7 @@ struct list_t
 	* @param node[OUT]: pointer of the out node
 	* @return 0 if success, otherwise failed and indicate the error code
 	*/
-	int(*pop)(struct list_t *list, node_t* node);
+	int(*pop)(struct list_t *list, node_t** node);
 
 	/**
 	* peek
@@ -39,7 +39,7 @@ struct list_t
 	* @param node[OUT]: pointer of the out node
 	* @return 0 if success, otherwise failed and indicate the error code
 	*/
-	int(*peek)(struct list_t *list, int index, node_t* node);
+	int(*peek)(struct list_t *list, int index, node_t** node);
 
 	/**
 	* clear	
