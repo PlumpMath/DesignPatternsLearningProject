@@ -15,13 +15,7 @@ static int attach_observer(struct subject_model_t* subject_model, subject_update
 	assert(NULL != subject_model);
 	assert(NULL != update);
 
-	struct node_t* new_node = (struct node_t*)malloc(sizeof(struct node_t));
-	assert(NULL != new_node);
-
-	new_node->data = update;
-	new_node->next = NULL;
-
-	return subject_model->callback_list->push(subject_model->callback_list, new_node);
+	return subject_model->callback_list->push(subject_model->callback_list, (void*)update);
 }
 
 static int detach_observer(struct subject_model_t* subject_model, subject_update_callback update)
@@ -29,23 +23,7 @@ static int detach_observer(struct subject_model_t* subject_model, subject_update
     assert(NULL != subject_model);
     assert(NULL != update);
 
-    struct node_t new_node;
-    new_node.data = update;
-    new_node.next = NULL;
-
-    struct node_t* remove_node = NULL;
-    int ret = subject_model->callback_list->remove(subject_model->callback_list, &new_node, &remove_node);
-    if (NO_ERROR == ret)
-    {
-        free(remove_node);
-        remove_node = NULL;
-    }
-    else
-    {
-        return ret;
-    }
-
-    return NO_ERROR;
+    return subject_model->callback_list->remove(subject_model->callback_list, (void*)update);
 }
 static int detach_all(struct subject_model_t* subject_model)
 {
@@ -61,11 +39,11 @@ static int notify(struct subject_model_t* subject_model, void* subject)
 	int count = subject_model->callback_list->count(subject_model->callback_list);
 	for (int i = 0; i < count; ++i)
 	{
-		struct node_t* curr_node = NULL; 
-		int retval = subject_model->callback_list->peek(subject_model->callback_list, i, &curr_node);
+		subject_update_callback curr_update_callback = NULL;
+		int retval = subject_model->callback_list->peek(subject_model->callback_list, i, (void**)&curr_update_callback);
 		assert(NO_ERROR == retval);
 
-		int callback_retval = ((subject_update_callback)(curr_node->data))(subject);
+		int callback_retval = (curr_update_callback)(subject);
 	}
 
 	return NO_ERROR;

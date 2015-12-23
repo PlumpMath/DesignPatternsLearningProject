@@ -8,11 +8,22 @@ Description	: structs and interfaces of the list
 #include "common_include.h"
 #include "list.h"
 
-static int list_t_push(struct list_t *list, node_t* node)
+struct node_t
+{
+	void* data;
+	struct node_t* next;
+};
+
+
+static int list_t_push(struct list_t *list, void* data)
 {
 	assert(NULL != list);
+	assert(NULL != data);
+
+	struct node_t* node = (struct node_t*)malloc(sizeof(struct node_t));
 	assert(NULL != node);
 
+	node->data = data;
 	node->next = NULL;
 
 	if (NULL == list->head)
@@ -33,33 +44,38 @@ static int list_t_push(struct list_t *list, node_t* node)
 	return NO_ERROR;
 }
 
-static int list_t_pop(struct list_t *list, node_t** node)
+static int list_t_pop(struct list_t *list, void** data)
 {
 	assert(NULL != list);	
-	assert(NULL != node && NULL == *node);
+	assert(NULL != data && NULL == *data);
 
-	*node = list->head;
-	if (NULL == *node)
+	if (NULL == list->head)
 	{
 		return COMMON_ERROR_CODE_FIFO_EMPTY;
 	}
 
+	struct node_t* node = list->head;
 	list->head = list->head->next;
+
+	*data = node->data;
+
+	free(node);
+	node = NULL;
+
 	return NO_ERROR;
 
 }
 
-static int list_t_remove(struct list_t *list, node_t* in_node, node_t ** out_node)
+static int list_t_remove(struct list_t *list, void* data)
 {
     assert(NULL != list);
-    assert(NULL != in_node);
-    assert(NULL != out_node && NULL == *out_node);
+    assert(NULL != data);
 
     node_t* curr_node = list->head;
     node_t* prev_node = NULL;
     while (NULL != curr_node)
     {
-        if (curr_node->data == in_node->data)
+        if (curr_node->data == data)
         {
             if (curr_node == list->head)
             {
@@ -70,8 +86,8 @@ static int list_t_remove(struct list_t *list, node_t* in_node, node_t ** out_nod
                 prev_node->next = curr_node->next;
             }
 
-            *out_node = curr_node;
-            (*out_node)->next = NULL;
+			free(curr_node);
+			curr_node = NULL;
 
             return NO_ERROR;
         }
@@ -83,10 +99,10 @@ static int list_t_remove(struct list_t *list, node_t* in_node, node_t ** out_nod
     return COMMON_ERROR_CODE_NO_SPECIFIED_DATA;
 }
 
-static int list_t_peek(struct list_t *list, int index, node_t** node)
+static int list_t_peek(struct list_t *list, int index, void** data)
 {
 	assert(NULL != list);
-	assert(NULL != node && NULL == *node);
+	assert(NULL != data && NULL == *data);
 	assert(index >= 0);
 
 	if (index >= list->count(list))
@@ -100,7 +116,7 @@ static int list_t_peek(struct list_t *list, int index, node_t** node)
 	{
 		if (curr_node_index == index)
 		{
-			*node = curr_node;
+			*data = curr_node->data;
 			break;
 		}
 		curr_node = curr_node->next;
