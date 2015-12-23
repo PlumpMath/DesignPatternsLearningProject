@@ -26,8 +26,26 @@ static int attach_observer(struct subject_model_t* subject_model, subject_update
 
 static int detach_observer(struct subject_model_t* subject_model, subject_update_callback update)
 {
-	//TODO: 
-	return COMMON_ERROR_CODE_UNAVAILABLE;
+    assert(NULL != subject_model);
+    assert(NULL != update);
+
+    struct node_t new_node;
+    new_node.data = update;
+    new_node.next = NULL;
+
+    struct node_t* remove_node = NULL;
+    int ret = subject_model->callback_list->remove(subject_model->callback_list, &new_node, &remove_node);
+    if (NO_ERROR == ret)
+    {
+        free(remove_node);
+        remove_node = NULL;
+    }
+    else
+    {
+        return ret;
+    }
+
+    return NO_ERROR;
 }
 static int detach_all(struct subject_model_t* subject_model)
 {
