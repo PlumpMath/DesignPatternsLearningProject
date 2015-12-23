@@ -32,6 +32,14 @@ struct list_t
 	*/
 	int(*pop)(struct list_t *list, node_t** node);
 
+    /**
+    * remove
+    * @description: remove the specified node from the list
+    * @param node[IN]: the node ready to be removed
+    * @return 0 if success, otherwise failed and indicate the error code
+    */
+    int(*remove)(struct list_t *list, node_t* node);
+
 	/**
 	* peek
 	* @description: get the node indicated by the index, just have a look or do something

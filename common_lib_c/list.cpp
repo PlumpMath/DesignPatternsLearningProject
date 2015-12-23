@@ -49,6 +49,12 @@ static int list_t_pop(struct list_t *list, node_t** node)
 
 }
 
+static int list_t_remove(struct list_t *list, node_t* node)
+{
+
+    return NO_ERROR;
+}
+
 static int list_t_peek(struct list_t *list, int index, node_t** node)
 {
 	assert(NULL != list);
@@ -118,6 +124,7 @@ int initialize_list_t(struct list_t *list)
 	//Initialize the interfaces
 	list->push = list_t_push;
 	list->pop = list_t_pop;
+    list->remove = list_t_remove;
 	list->peek = list_t_peek;
 	list->clear = list_t_clear;
 	list->count = list_t_count;
