@@ -49,10 +49,38 @@ static int list_t_pop(struct list_t *list, node_t** node)
 
 }
 
-static int list_t_remove(struct list_t *list, node_t* node)
+static int list_t_remove(struct list_t *list, node_t* in_node, node_t ** out_node)
 {
+    assert(NULL != list);
+    assert(NULL != in_node);
+    assert(NULL != out_node && NULL == *out_node);
 
-    return NO_ERROR;
+    node_t* curr_node = list->head;
+    node_t* prev_node = NULL;
+    while (NULL != curr_node)
+    {
+        if (curr_node->data == in_node->data)
+        {
+            if (curr_node == list->head)
+            {
+                list->head = list->head->next;
+            }
+            else
+            {
+                prev_node->next = curr_node->next;
+            }
+
+            *out_node = curr_node;
+            (*out_node)->next = NULL;
+
+            return NO_ERROR;
+        }
+        
+        prev_node = curr_node;
+        curr_node = curr_node->next;
+    }
+
+    return COMMON_ERROR_CODE_NO_SPECIFIED_DATA;
 }
 
 static int list_t_peek(struct list_t *list, int index, node_t** node)

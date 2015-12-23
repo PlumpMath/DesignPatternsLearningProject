@@ -34,11 +34,13 @@ struct list_t
 
     /**
     * remove
-    * @description: remove the specified node from the list
-    * @param node[IN]: the node ready to be removed
+    * @description: remove the specified node from the list, and just take it out
+    *   users should consider to free the memory.
+    * @param in_node[IN]: the node which include the data ready to be removed
+    * @param out_node[OUT]: pointer of the out node
     * @return 0 if success, otherwise failed and indicate the error code
     */
-    int(*remove)(struct list_t *list, node_t* node);
+    int(*remove)(struct list_t *list, node_t* in_node, node_t ** out_node);
 
 	/**
 	* peek
