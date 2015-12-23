@@ -51,7 +51,7 @@ int main()
 	printf("Please Enter the new id:");
 	scanf_s("%d", &new_info.my_id);
 	printf("Please Enter the new description:");
-	scanf("%s", new_info.my_description);
+	scanf_s("%s", new_info.my_description, _countof(new_info.my_description));
 	subject_mode.notify(&subject_mode, &new_info);
 	printf("\n\n");
 
@@ -62,7 +62,7 @@ int main()
 	printf("Please Enter the new id:");
 	scanf_s("%d", &new_info.my_id);
 	printf("Please Enter the new description:");
-	scanf("%s", new_info.my_description);
+	scanf_s("%s", new_info.my_description, _countof(new_info.my_description));
 	subject_mode.notify(&subject_mode, &new_info);
 
     subject_mode.detach_observer(&subject_mode, observer_A_update);
@@ -72,7 +72,7 @@ int main()
     printf("Please Enter the new id:");
     scanf_s("%d", &new_info.my_id);
     printf("Please Enter the new description:");
-    scanf("%s", new_info.my_description);
+    scanf_s("%s", new_info.my_description, _countof(new_info.my_description));
     subject_mode.notify(&subject_mode, &new_info);
 
 	printf("\n\nPlease Enter any key to continue...\n");
