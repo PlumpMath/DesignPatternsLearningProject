@@ -65,9 +65,18 @@ int main()
 	scanf("%s", new_info.my_description);
 	subject_mode.notify(&subject_mode, &new_info);
 
+    subject_mode.detach_observer(&subject_mode, observer_A_update);
+    printf("Obsever A has been detached.\n");
+
+    memset(&new_info, 0, sizeof(new_info));
+    printf("Please Enter the new id:");
+    scanf_s("%d", &new_info.my_id);
+    printf("Please Enter the new description:");
+    scanf("%s", new_info.my_description);
+    subject_mode.notify(&subject_mode, &new_info);
+
 	printf("\n\nPlease Enter any key to continue...\n");
-	char any_key = '0';
-	scanf("%c", &any_key);
+    system("pause");
 
 	return 0;
 }
