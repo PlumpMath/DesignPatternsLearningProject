@@ -9,8 +9,9 @@ Description	: log file
 #define __COMMON_LOG_H__
 
 #include "common_include.h"
+extern "C" {
 
-COMMON_LIB_C_DLL_EXPORT int log_print(const char* format, ...);
-
+    COMMON_LIB_C_DLL_EXPORT int log_print(const char* format, ...);
+}
 #endif
 
