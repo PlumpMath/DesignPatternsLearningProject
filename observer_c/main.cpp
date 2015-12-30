@@ -6,6 +6,7 @@ Description	: main
 ************************************************************************************/
 
 #include "common_include.h"
+#include "common_log.h"
 #include "subject.h"
 
 
@@ -37,7 +38,7 @@ static int observer_B_update(void* param)
 
 int main()
 {
-	printf("Observer test.\n");
+    log_print("Observer test.\n");
 
 	subject_model_t subject_mode;
 	initialize_subject_model_t(&subject_mode);
