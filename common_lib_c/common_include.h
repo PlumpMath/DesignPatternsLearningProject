@@ -18,9 +18,11 @@ Description	: include most of the .h files here, easy to use
 #include <math.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <stdarg.h>
 
 //from my own
 #include "common_error_code.h"
+#include "common_macro.h"
 
 //for different platforms
 #if defined(WIN32)

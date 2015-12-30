@@ -8,6 +8,8 @@ Description	: structs and interfaces of the list
 #ifndef __LIST_H__
 #define __LIST_H__
 
+#include "common_include.h"
+
 struct list_t
 {
 	/**
@@ -66,6 +68,6 @@ struct list_t
 * @description: initialize the list
 * @return 0 if success, otherwise failed and indicate the error code
 */
-__declspec(dllexport) int initialize_list_t(struct list_t *list);
+COMMON_LIB_C_DLL_EXPORT int initialize_list_t(struct list_t *list);
 
 #endif
