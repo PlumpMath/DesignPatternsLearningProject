@@ -66,6 +66,6 @@ struct list_t
 * @description: initialize the list
 * @return 0 if success, otherwise failed and indicate the error code
 */
-int initialize_list_t(struct list_t *list);
+__declspec(dllexport) int initialize_list_t(struct list_t *list);
 
 #endif
