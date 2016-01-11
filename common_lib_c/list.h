@@ -20,6 +20,12 @@ Description	: structs and interfaces of the list
 
 extern "C" {
 
+    struct node_t
+    {
+        void* data;
+        struct node_t* next;
+    };
+
     struct list_t
     {
         struct node_t* head;

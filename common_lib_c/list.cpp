@@ -8,12 +8,6 @@ Description	: structs and interfaces of the list
 #include "common_include.h"
 #include "list.h"
 
-struct node_t
-{
-	void* data;
-	struct node_t* next;
-};
-
 STATIC_FUNC int list_t_count(struct list_t *list)
 {
     assert(NULL != list);
