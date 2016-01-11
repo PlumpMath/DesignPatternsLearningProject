@@ -2,8 +2,8 @@
 # coding=UTF-8
 """
 Description:
-Author:???? wangyoucao577@gmail.com
-Version:??? 2016-01-10
+Author: wangyoucao577@gmail.com
+Version: 2016-01-10
 """
 
 import os
