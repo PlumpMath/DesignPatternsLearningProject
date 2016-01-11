@@ -12,8 +12,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "observer_c", "observer_c\ob
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "common_lib_c", "common_lib_c\common_lib_c.vcxproj", "{18844772-0752-48B0-8FE2-6D7084D8316B}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "ObserverCPython", "ObserverCPython\ObserverCPython.pyproj", "{684B919E-EC8C-45E8-AE5E-B5DF1973D8BD}"
-EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "common_lib_c_unit_test", "common_lib_c_unit_test\common_lib_c_unit_test.pyproj", "{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}"
 EndProject
 Global
@@ -60,12 +58,6 @@ Global
 		{18844772-0752-48B0-8FE2-6D7084D8316B}.Release|x64.Build.0 = Release|x64
 		{18844772-0752-48B0-8FE2-6D7084D8316B}.Release|x86.ActiveCfg = Release|Win32
 		{18844772-0752-48B0-8FE2-6D7084D8316B}.Release|x86.Build.0 = Release|Win32
-		{684B919E-EC8C-45E8-AE5E-B5DF1973D8BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{684B919E-EC8C-45E8-AE5E-B5DF1973D8BD}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{684B919E-EC8C-45E8-AE5E-B5DF1973D8BD}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{684B919E-EC8C-45E8-AE5E-B5DF1973D8BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{684B919E-EC8C-45E8-AE5E-B5DF1973D8BD}.Release|x64.ActiveCfg = Release|Any CPU
-		{684B919E-EC8C-45E8-AE5E-B5DF1973D8BD}.Release|x86.ActiveCfg = Release|Any CPU
 		{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}.Debug|x86.ActiveCfg = Debug|Any CPU
