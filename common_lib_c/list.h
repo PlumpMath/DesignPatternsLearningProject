@@ -9,10 +9,23 @@ Description	: structs and interfaces of the list
 #define __LIST_H__
 
 #include "common_include.h"
+
+//#define CLASS_STYLE_STRUCT_LIST_T
+#ifdef CLASS_STYLE_STRUCT_LIST_T
+#define STATIC_FUNC static
+#else
+#define STATIC_FUNC 
+#endif // CLASS_STYLE_STRUCT_LIST_T
+
+
 extern "C" {
 
     struct list_t
     {
+        struct node_t* head;
+
+        //--------------------------------------------------------
+#ifdef CLASS_STYLE_STRUCT_LIST_T
         /**
         * push
         * @description: append the new node to the end of the list
@@ -59,9 +72,7 @@ extern "C" {
         * @return how many nodes in the list
         */
         int(*count)(struct list_t *list);
-
-        //--------------------------------------------------------
-        struct node_t* head;
+#endif
     };
 
     /**
@@ -71,6 +82,14 @@ extern "C" {
     */
     COMMON_LIB_C_DLL_EXPORT int initialize_list_t(struct list_t *list);
 
+#ifndef CLASS_STYLE_STRUCT_LIST_T
+    COMMON_LIB_C_DLL_EXPORT int list_t_push(struct list_t *list, void* data);
+    COMMON_LIB_C_DLL_EXPORT int list_t_pop(struct list_t *list, void** data);
+    COMMON_LIB_C_DLL_EXPORT int list_t_remove(struct list_t *list, void* data);
+    COMMON_LIB_C_DLL_EXPORT int list_t_peek(struct list_t *list, int index, void** data);
+    COMMON_LIB_C_DLL_EXPORT int list_t_clear(struct list_t *list);
+    COMMON_LIB_C_DLL_EXPORT int list_t_count(struct list_t *list);
+#endif
 }
 
 #endif

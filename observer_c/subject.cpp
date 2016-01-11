@@ -15,7 +15,11 @@ static int attach_observer(struct subject_model_t* subject_model, subject_update
 	assert(NULL != subject_model);
 	assert(NULL != update);
 
-	return subject_model->callback_list->push(subject_model->callback_list, (void*)update);
+#ifdef CLASS_STYLE_STRUCT_LIST_T
+    return subject_model->callback_list->push(subject_model->callback_list, (void*)update);
+#else
+    return list_t_push(subject_model->callback_list, (void*)update);
+#endif
 }
 
 static int detach_observer(struct subject_model_t* subject_model, subject_update_callback update)
@@ -23,25 +27,43 @@ static int detach_observer(struct subject_model_t* subject_model, subject_update
     assert(NULL != subject_model);
     assert(NULL != update);
 
+#ifdef CLASS_STYLE_STRUCT_LIST_T
     return subject_model->callback_list->remove(subject_model->callback_list, (void*)update);
+#else
+    return list_t_remove(subject_model->callback_list, (void*)update);
+#endif
 }
 static int detach_all(struct subject_model_t* subject_model)
 {
 	assert(NULL != subject_model);
 
+#ifdef CLASS_STYLE_STRUCT_LIST_T
 	return subject_model->callback_list->clear(subject_model->callback_list);
+#else
+    return list_t_clear(subject_model->callback_list);
+#endif
 }
 static int notify(struct subject_model_t* subject_model, void* subject)
 {
 	assert(NULL != subject_model);
 	assert(NULL != subject);
 
-	int count = subject_model->callback_list->count(subject_model->callback_list);
-	for (int i = 0; i < count; ++i)
+    int count = 0;
+#ifdef CLASS_STYLE_STRUCT_LIST_T
+    count = subject_model->callback_list->count(subject_model->callback_list);
+#else
+    count = list_t_count(subject_model->callback_list);
+#endif
+    for (int i = 0; i < count; ++i)
 	{
 		subject_update_callback curr_update_callback = NULL;
-		int retval = subject_model->callback_list->peek(subject_model->callback_list, i, (void**)&curr_update_callback);
-		assert(NO_ERROR == retval);
+        int retval = NO_ERROR;
+#ifdef CLASS_STYLE_STRUCT_LIST_T
+        retval = subject_model->callback_list->peek(subject_model->callback_list, i, (void**)&curr_update_callback);
+#else
+        retval = list_t_peek(subject_model->callback_list, i, (void**)&curr_update_callback);
+#endif
+        assert(NO_ERROR == retval);
 
 		int callback_retval = (curr_update_callback)(subject);
 	}

@@ -14,8 +14,21 @@ struct node_t
 	struct node_t* next;
 };
 
+STATIC_FUNC int list_t_count(struct list_t *list)
+{
+    assert(NULL != list);
 
-static int list_t_push(struct list_t *list, void* data)
+    int count = 0;
+    struct node_t* current_node = list->head;
+    while (NULL != current_node)
+    {
+        ++count;
+        current_node = current_node->next;
+    }
+    return count;
+}
+
+STATIC_FUNC int list_t_push(struct list_t *list, void* data)
 {
 	assert(NULL != list);
 	assert(NULL != data);
@@ -44,7 +57,7 @@ static int list_t_push(struct list_t *list, void* data)
 	return NO_ERROR;
 }
 
-static int list_t_pop(struct list_t *list, void** data)
+STATIC_FUNC int list_t_pop(struct list_t *list, void** data)
 {
 	assert(NULL != list);	
 	assert(NULL != data && NULL == *data);
@@ -66,7 +79,7 @@ static int list_t_pop(struct list_t *list, void** data)
 
 }
 
-static int list_t_remove(struct list_t *list, void* data)
+STATIC_FUNC int list_t_remove(struct list_t *list, void* data)
 {
     assert(NULL != list);
     assert(NULL != data);
@@ -99,13 +112,13 @@ static int list_t_remove(struct list_t *list, void* data)
     return COMMON_ERROR_CODE_NO_SPECIFIED_DATA;
 }
 
-static int list_t_peek(struct list_t *list, int index, void** data)
+STATIC_FUNC int list_t_peek(struct list_t *list, int index, void** data)
 {
 	assert(NULL != list);
 	assert(NULL != data && NULL == *data);
 	assert(index >= 0);
 
-	if (index >= list->count(list))
+	if (index >= list_t_count(list))
 	{
 		return COMMON_ERROR_CODE_OUT_OF_RANGE;
 	}
@@ -126,7 +139,7 @@ static int list_t_peek(struct list_t *list, int index, void** data)
 	return NO_ERROR;
 }
 
-static int list_t_clear(struct list_t *list)
+STATIC_FUNC int list_t_clear(struct list_t *list)
 {
 	assert(NULL != list);
 	
@@ -144,20 +157,6 @@ static int list_t_clear(struct list_t *list)
 
 }
 
-static int list_t_count(struct list_t *list)
-{
-	assert(NULL != list);
-
-	int count = 0;
-	struct node_t* current_node = list->head;
-	while (NULL != current_node)
-	{
-		++count;
-		current_node = current_node->next;
-	}
-	return count;
-}
-
 
 int initialize_list_t(struct list_t *list)
 {
@@ -165,13 +164,17 @@ int initialize_list_t(struct list_t *list)
 
 	list->head = NULL;
 
-	//Initialize the interfaces
-	list->push = list_t_push;
-	list->pop = list_t_pop;
+#ifdef CLASS_STYLE_STRUCT_LIST_T
+
+    //Initialize the interfaces
+    list->push = list_t_push;
+    list->pop = list_t_pop;
     list->remove = list_t_remove;
-	list->peek = list_t_peek;
-	list->clear = list_t_clear;
-	list->count = list_t_count;
+    list->peek = list_t_peek;
+    list->clear = list_t_clear;
+    list->count = list_t_count;
+
+#endif // CLASS_STYLE_STRUCT_LIST_T
 
 	return NO_ERROR;
 }
