@@ -32,6 +32,7 @@ STATIC_FUNC int list_t_push(struct list_t *list, void* data)
 
 	node->data = data;
 	node->next = NULL;
+    printf("%s->data:%s at 0x%08x, len:%d.\n", __func__, (char*)(data), data, strlen((char*)(data)));
 
 	if (NULL == list->head)
 	{
@@ -65,6 +66,7 @@ STATIC_FUNC int list_t_pop(struct list_t *list, void** data)
 	list->head = list->head->next;
 
 	*data = node->data;
+    printf("%s->data:%s at 0x%08x 0x%08x, len:%d.\n", __func__, (char*)(*data), *data, data, strlen((char*)(*data)));
 
 	free(node);
 	node = NULL;
