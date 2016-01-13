@@ -24,7 +24,7 @@ class ListT(Structure):
 def load_common_lib_c(lib_path):
     if os.path.exists(lib_path):
         loaded_lib = cdll.LoadLibrary(lib_path)
-        sys.stdout.write("loaded_lib :")
+        sys.stdout.write("\nloaded_lib :")
         print(loaded_lib)
 
         #print address of imported functions
@@ -42,6 +42,7 @@ def load_common_lib_c(lib_path):
         print(loaded_lib.list_t_clear)
         sys.stdout.write("loaded_lib.list_t_count :")
         print(loaded_lib.list_t_count)
+        print("")
     else:
         assert False
     return loaded_lib
@@ -64,39 +65,43 @@ class CommonLibCListTestCase(unittest.TestCase):
         self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
 
         #push
-        #for data in org_data_list:
-        #    p_data = create_string_buffer(10)
-        #    p_data.value = b"ABC"
-        #    print(data)
-        #    print(p_data)
-        #    print(p_data.value)
-        #    self.common_lib_c.list_t_push(pointer(self.list_t_object), p_data)
-        #self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 
-        #                len(org_data_list))
-        p_data_list = [b'', b'', b'']
-        p_data_list[0] = create_string_buffer(10)
-        p_data_list[0].value = b"A"
-        p_data_list[1] = create_string_buffer(10)
-        p_data_list[1].value = b"AB"
-        p_data_list[2] = create_string_buffer(10)
-        p_data_list[2].value = b"ABC"
-        print(p_data_list)
-        self.common_lib_c.list_t_push(pointer(self.list_t_object), p_data_list[0])
-        self.common_lib_c.list_t_push(pointer(self.list_t_object), p_data_list[1])
-        self.common_lib_c.list_t_push(pointer(self.list_t_object), p_data_list[2])
-
+        p_push_bytes_data = {}
+        for data in org_data_list:
+            #print(data)
+            p_push_bytes_data[data] = create_string_buffer(data.encode('ascii'))
+            print("p_push_bytes_data[%s] ->%s (%s)" 
+                  %(data, p_push_bytes_data[data].value.decode('ascii'), p_push_bytes_data[data]))
+            self.common_lib_c.list_t_push(pointer(self.list_t_object), p_push_bytes_data[data])
+        self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 
+                        len(org_data_list))
+        #print(p_bytes_data)
+        print("")
 
         #pop
-        popped_data_list = [b'', b'', b'']
+        p_pop_data_list = {}
         i = 0
         while self.common_lib_c.list_t_count(pointer(self.list_t_object)) > 0:
-            popped_data_list[i] = create_string_buffer(10)
-            self.common_lib_c.list_t_pop(pointer(self.list_t_object), popped_data_list[i])
-            print(popped_data_list[i])
-            print(popped_data_list[i].value)
+            #p_pop_data_list[i] = create_string_buffer(10)
+            #print("p_pop_data_list[%d] before pop :%s (%s)" 
+            #      %(i, p_pop_data_list[i].value.decode('ascii'), p_pop_data_list[i]))
+            #self.common_lib_c.list_t_pop(pointer(self.list_t_object), pointer(p_pop_data_list[i]))
+            #print("p_pop_data_list[%d] after pop->%s (%s)" 
+            #      %(i, p_pop_data_list[i].value, p_pop_data_list[i]))
+            data = c_char_p()
+            p_data = pointer(data)
+            self.common_lib_c.list_t_pop(pointer(self.list_t_object), p_data)
+            #p_data.contents.value is equal to data.value
+
+            #TODO: how to print data as 0x12345678?
+            print("pop :%s at %s" %(p_data.contents.value.decode('ascii'), data))
+
+            #TODO: how to add to dict
+            #popped_data_list[i] = p_data.contents.value
+            #print("popped_data_list[%d] ->%s" %(i, p_pop_data_list[i]))
+
             i += 1
         print(popped_data_list)
-        
+        print("")
 
 def suite():
     suite = unittest.TestSuite()
