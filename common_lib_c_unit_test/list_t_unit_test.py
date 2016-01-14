@@ -82,12 +82,12 @@ class CommonLibCListTestCase(unittest.TestCase):
         print(get_func_name() + "end.")
 
     def testInitialize(self):
-        print(get_func_name() + "test start.")
+        print(get_func_name() + " start.")
         self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
-        print(get_func_name() + "test end.\n")
+        print(get_func_name() + " end.\n")
 
     def testPushPop(self):
-        print(get_func_name() + "test start.")
+        print(get_func_name() + " start.")
 
         #initialize
         self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
@@ -122,10 +122,40 @@ class CommonLibCListTestCase(unittest.TestCase):
         print(p_pop_data_list)
         self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 0)
 
-        print(get_func_name() + "test end.\n")
+        print(get_func_name() + " end.\n")
+    
+    def testPushPeek(self):
+        print(get_func_name() + " start.")
+
+        #initialize
+        self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
+
+        #push
+        self.doDataPush()
+
+        #peek
+        peeked_data_list = []
+        i = 0
+        while i < self.common_lib_c.list_t_count(pointer(self.list_t_object)):
+            data = c_char_p()
+            p_data = pointer(data)
+            self.common_lib_c.list_t_peek(pointer(self.list_t_object), i, p_data)
+            print("peek[%d] ->%s at %s" %(i, p_data.contents.value.decode('ascii'), data))
+
+            #add value to list
+            peeked_data_list.append(p_data.contents.value.decode('ascii'))
+            print("peeked_data_list[%d] ->%s\n" %(i, peeked_data_list[i]))
+
+            i += 1
+
+        print("peeked_data_list:")
+        print(peeked_data_list)
+        self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), len(self.org_data_list))
+
+        print(get_func_name() + " end.\n")
 
     def testPushClear(self):
-        print(get_func_name() + "test start.")
+        print(get_func_name() + " start.")
 
         #initialize
         self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
@@ -137,16 +167,36 @@ class CommonLibCListTestCase(unittest.TestCase):
         self.common_lib_c.list_t_clear(pointer(self.list_t_object))
         self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 0)
 
-        print(get_func_name() + "test end.\n")
+        print(get_func_name() + " end.\n")
 
+    def testPushRemove(self):
+        print(get_func_name() + " start.")
+
+        #initialize
+        self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
+
+        #push
+        self.doDataPush()
+
+        #remove
+        for data in self.org_data_list:
+            print("going to remove: p_push_bytes_data[%s] ->%s, type:%s" %(data, self.p_push_bytes_data[data].value.decode('ascii'), self.p_push_bytes_data[data]))
+            self.common_lib_c.list_t_remove(pointer(self.list_t_object), self.p_push_bytes_data[data])
+            sys.stdout.write("list_t_count ->")
+            print(self.common_lib_c.list_t_count(pointer(self.list_t_object)))
+
+        self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 0)
+
+        print(get_func_name() + " end.\n")
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(CommonLibCListTestCase("testInitialize"))
-    suite.addTest(CommonLibCListTestCase("testPushPop"))
-    suite.addTest(CommonLibCListTestCase("testPushClear"))
-    return suite
-    #return unittest.makeSuite(CommonLibCListTestCase, "test")
+    #suite.addTest(CommonLibCListTestCase("testInitialize"))
+    #suite.addTest(CommonLibCListTestCase("testPushPop"))
+    #suite.addTest(CommonLibCListTestCase("testPushClear"))
+    #suite.addTest(CommonLibCListTestCase("testPushRemove"))
+    #return suite
+    return unittest.makeSuite(CommonLibCListTestCase, "test")
 
 def main():
     print("Unittest Start.")
