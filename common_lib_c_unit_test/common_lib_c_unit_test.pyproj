@@ -23,6 +23,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="common_lib_c_unit_test.py" />
+    <Compile Include="common_tools.py" />
     <Compile Include="list_t_unit_test.py" />
   </ItemGroup>
   <PropertyGroup>
