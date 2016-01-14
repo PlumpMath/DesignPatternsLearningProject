@@ -10,6 +10,8 @@ import os
 import sys
 from ctypes import *
 import unittest
+import faulthandler
+from common_tools import *
 
 #import node_t from common_lib
 class ListNodeT(Structure):
@@ -55,11 +57,24 @@ class CommonLibCListTestCase(unittest.TestCase):
         
         #construct list_t
         self.list_t_object = ListT()
+
+        #prepare push data
+        #self.p_push_bytes_data = {}
+        #org_data_list = ['A', 'AB', 'ABC', 'ABCD', 'ABCDE']
+        #for data in org_data_list:
+        #    self.p_push_bytes_data[data] = create_string_buffer(data.encode('ascii'))
+
     def tearDown(self):
-        pass        
-    def testPush(self):
+        pass  
+          
+    def testInitialize(self):
+        print(get_func_name() + "test start.")
+        self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
+        print(get_func_name() + "test end.\n")
+
+    def testPushPop(self):
+        print(get_func_name() + "test start.")
         org_data_list = ['A', 'AB', 'ABC', 'ABCD', 'ABCDE']
-        popped_data_list = []
 
         #initialize
         self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
@@ -70,43 +85,47 @@ class CommonLibCListTestCase(unittest.TestCase):
             #print(data)
             p_push_bytes_data[data] = create_string_buffer(data.encode('ascii'))
             print("p_push_bytes_data[%s] ->%s (%s)" 
-                  %(data, p_push_bytes_data[data].value.decode('ascii'), p_push_bytes_data[data]))
+                 %(data, p_push_bytes_data[data].value.decode('ascii'), p_push_bytes_data[data]))
+            y = data.encode('ascii')
             self.common_lib_c.list_t_push(pointer(self.list_t_object), p_push_bytes_data[data])
+        print(self.common_lib_c.list_t_count(pointer(self.list_t_object)))
         self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 
                         len(org_data_list))
-        #print(p_bytes_data)
+        print("p_push_bytes_data:")
+        print(p_push_bytes_data)
         print("")
 
         #pop
         p_pop_data_list = {}
+        popped_data_list = []
         i = 0
         while self.common_lib_c.list_t_count(pointer(self.list_t_object)) > 0:
-            #p_pop_data_list[i] = create_string_buffer(10)
-            #print("p_pop_data_list[%d] before pop :%s (%s)" 
-            #      %(i, p_pop_data_list[i].value.decode('ascii'), p_pop_data_list[i]))
-            #self.common_lib_c.list_t_pop(pointer(self.list_t_object), pointer(p_pop_data_list[i]))
-            #print("p_pop_data_list[%d] after pop->%s (%s)" 
-            #      %(i, p_pop_data_list[i].value, p_pop_data_list[i]))
             data = c_char_p()
             p_data = pointer(data)
             self.common_lib_c.list_t_pop(pointer(self.list_t_object), p_data)
             #p_data.contents.value is equal to data.value
-
             #TODO: how to print data as 0x12345678?
             print("pop :%s at %s" %(p_data.contents.value.decode('ascii'), data))
 
-            #TODO: how to add to dict
-            #popped_data_list[i] = p_data.contents.value
-            #print("popped_data_list[%d] ->%s" %(i, p_pop_data_list[i]))
+            #add value to dict
+            p_pop_data_list[i] = p_data.contents.value.decode('ascii')
+            print("p_pop_data_list[%d] ->%s" %(i, p_pop_data_list[i]))
+
+            #add value to list
+            popped_data_list.append(p_data.contents.value.decode('ascii'))
+            print("popped_data_list[%d] ->%s\n" %(i, popped_data_list[i]))
 
             i += 1
+        print("popped_data_list:")
         print(popped_data_list)
-        print("")
+        print("p_pop_data_list:")
+        print(p_pop_data_list)
+        print(get_func_name() + "test end.\n")
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(CommonLibCListTestCase("testPush"))
-    #suite.addTest(CommonLibCListTestCase("testPush"))
+    suite.addTest(CommonLibCListTestCase("testInitialize"))
+    suite.addTest(CommonLibCListTestCase("testPushPop"))
     return suite
     #return unittest.makeSuite(CommonLibCListTestCase, "test")
 
@@ -118,6 +137,8 @@ def main():
 
     print("Unittest Done.")
 
+# always execute
+faulthandler.enable()
 
 if __name__ == '__main__':
     main()
