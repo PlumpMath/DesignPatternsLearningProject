@@ -189,7 +189,7 @@ class CommonLibCListTestCase(unittest.TestCase):
 
         print(get_func_name() + " end.\n")
 
-def suite():
+def list_t_unit_test_suite():
     suite = unittest.TestSuite()
     #suite.addTest(CommonLibCListTestCase("testInitialize"))
     #suite.addTest(CommonLibCListTestCase("testPushPop"))
@@ -199,18 +199,20 @@ def suite():
     return unittest.makeSuite(CommonLibCListTestCase, "test")
 
 def main():
-    print("Unittest Start.")
+    print("list_t_unit_test Start.")
     
     runner = unittest.TextTestRunner()
-    runner.run(suite())
+    runner.run(list_t_unit_test_suite())
 
-    print("Unittest Done.")
+    print("list_t_unit_test Done.")
 
 # always execute
 faulthandler.enable()
 
 if __name__ == '__main__':
     main()
+else:
+    print("Module list_t_unit_test.py has been loaded.")
 
 
 
