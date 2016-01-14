@@ -59,14 +59,28 @@ class CommonLibCListTestCase(unittest.TestCase):
         self.list_t_object = ListT()
 
         #prepare push data
-        #self.p_push_bytes_data = {}
-        #org_data_list = ['A', 'AB', 'ABC', 'ABCD', 'ABCDE']
-        #for data in org_data_list:
-        #    self.p_push_bytes_data[data] = create_string_buffer(data.encode('ascii'))
+        self.p_push_bytes_data = {}
+        self.org_data_list = ['A', 'AB', 'ABC', 'ABCD', 'ABCDE']
+        for data in self.org_data_list:
+            self.p_push_bytes_data[data] = create_string_buffer(data.encode('ascii'))
 
     def tearDown(self):
         pass  
-          
+
+    def doDataPush(self):
+        print(get_func_name() + "start.")
+
+        for data in self.org_data_list:
+            print("self.p_push_bytes_data[%s] ->%s, type:%s" %(data, self.p_push_bytes_data[data].value.decode('ascii'), self.p_push_bytes_data[data]))
+            self.common_lib_c.list_t_push(pointer(self.list_t_object), self.p_push_bytes_data[data])
+            sys.stdout.write("list_t_count ->")
+            print(self.common_lib_c.list_t_count(pointer(self.list_t_object)))
+        
+        self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 
+                         len(self.p_push_bytes_data))
+
+        print(get_func_name() + "end.")
+
     def testInitialize(self):
         print(get_func_name() + "test start.")
         self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
@@ -74,26 +88,12 @@ class CommonLibCListTestCase(unittest.TestCase):
 
     def testPushPop(self):
         print(get_func_name() + "test start.")
-        org_data_list = ['A', 'AB', 'ABC', 'ABCD', 'ABCDE']
 
         #initialize
         self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
 
         #push
-        p_push_bytes_data = {}
-        for data in org_data_list:
-            #print(data)
-            p_push_bytes_data[data] = create_string_buffer(data.encode('ascii'))
-            print("p_push_bytes_data[%s] ->%s (%s)" 
-                 %(data, p_push_bytes_data[data].value.decode('ascii'), p_push_bytes_data[data]))
-            y = data.encode('ascii')
-            self.common_lib_c.list_t_push(pointer(self.list_t_object), p_push_bytes_data[data])
-        print(self.common_lib_c.list_t_count(pointer(self.list_t_object)))
-        self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 
-                        len(org_data_list))
-        print("p_push_bytes_data:")
-        print(p_push_bytes_data)
-        print("")
+        self.doDataPush()
 
         #pop
         p_pop_data_list = {}
@@ -120,6 +120,8 @@ class CommonLibCListTestCase(unittest.TestCase):
         print(popped_data_list)
         print("p_pop_data_list:")
         print(p_pop_data_list)
+        self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 0)
+
         print(get_func_name() + "test end.\n")
 
 def suite():
