@@ -124,10 +124,27 @@ class CommonLibCListTestCase(unittest.TestCase):
 
         print(get_func_name() + "test end.\n")
 
+    def testPushClear(self):
+        print(get_func_name() + "test start.")
+
+        #initialize
+        self.common_lib_c.initialize_list_t(pointer(self.list_t_object))
+
+        #push
+        self.doDataPush()
+
+        #clear
+        self.common_lib_c.list_t_clear(pointer(self.list_t_object))
+        self.assertEqual(self.common_lib_c.list_t_count(pointer(self.list_t_object)), 0)
+
+        print(get_func_name() + "test end.\n")
+
+
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(CommonLibCListTestCase("testInitialize"))
     suite.addTest(CommonLibCListTestCase("testPushPop"))
+    suite.addTest(CommonLibCListTestCase("testPushClear"))
     return suite
     #return unittest.makeSuite(CommonLibCListTestCase, "test")
 
