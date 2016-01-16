@@ -62,7 +62,8 @@ class CommonLibCListTestCase(unittest.TestCase):
         self.p_push_bytes_data = {}
         self.org_data_list = ['A', 'AB', 'ABC', 'ABCD', 'ABCDE']
         for data in self.org_data_list:
-            self.p_push_bytes_data[data] = create_string_buffer(data.encode('ascii'))
+            self.p_push_bytes_data[data] = c_char_p(data.encode('ascii'))
+        print(self.p_push_bytes_data)
 
     def tearDown(self):
         pass  
