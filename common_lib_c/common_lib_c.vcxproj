@@ -124,12 +124,10 @@
   <ItemGroup>
     <ClInclude Include="common_error_code.h" />
     <ClInclude Include="common_include.h" />
-    <ClInclude Include="common_log.h" />
     <ClInclude Include="common_macro.h" />
     <ClInclude Include="list.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="common_log.cpp" />
     <ClCompile Include="list.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

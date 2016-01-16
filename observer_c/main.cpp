@@ -38,7 +38,7 @@ static int observer_B_update(void* param)
 
 int main()
 {
-    log_print("Observer test.\n");
+    printf("Observer test.\n");
 
 	subject_model_t subject_mode;
 	initialize_subject_model_t(&subject_mode);
