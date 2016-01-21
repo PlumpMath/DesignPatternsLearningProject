@@ -6,7 +6,6 @@ Description	: main
 ************************************************************************************/
 
 #include "common_include.h"
-#include "common_log.h"
 #include "subject.h"
 
 
