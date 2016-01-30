@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "common_lib_c", "common_lib_
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "common_lib_c_unit_test", "common_lib_c_unit_test\common_lib_c_unit_test.pyproj", "{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer_by.NetAPI", "Observer_by.NetAPI\Observer_by.NetAPI.csproj", "{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,18 @@ Global
 		{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}.Release|x64.ActiveCfg = Release|Any CPU
 		{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}.Release|x86.ActiveCfg = Release|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Debug|x64.Build.0 = Debug|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Debug|x86.Build.0 = Debug|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|x64.ActiveCfg = Release|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|x64.Build.0 = Release|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|x86.ActiveCfg = Release|Any CPU
+		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
