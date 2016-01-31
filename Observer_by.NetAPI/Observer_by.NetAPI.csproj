@@ -42,6 +42,7 @@
     <Compile Include="NewVersionPublishHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishMonitor.cs" />
     <Compile Include="Unsubscriber.cs" />
   </ItemGroup>
   <ItemGroup>
