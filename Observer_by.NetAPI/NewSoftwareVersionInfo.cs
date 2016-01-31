@@ -9,7 +9,7 @@ namespace Observer_by.NetAPI
         private string versionNumber;
         private string description;
 
-        NewSoftwareVersionInfo(string versionNumber, string description)
+        public NewSoftwareVersionInfo(string versionNumber, string description)
         {
             this.versionNumber = versionNumber;
             this.description = description;
