@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>d078da6c-1ea8-46a7-b64d-f612c9fafb80</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>list_t_unit_test.py</StartupFile>
+    <StartupFile>common_lib_c_unit_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
