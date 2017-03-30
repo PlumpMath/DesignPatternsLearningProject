@@ -1,22 +1,22 @@
 #include "stdafx.h"
-#include "StopState.h"
+#include "ClosedState.h"
 
 
-StopState::StopState()
+ClosedState::ClosedState()
 {
 }
 
 
-StopState::~StopState()
+ClosedState::~ClosedState()
 {
 }
 
-ElevatorState StopState::Open() {
+ElevatorState ClosedState::Open() {
     //TODO: Do something to open the door
 
     return ElevatorState::kStopOpening;
 }
 
-ElevatorState StopState::Close() {
+ElevatorState ClosedState::Close() {
     return curr_state();
 }

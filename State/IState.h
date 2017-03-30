@@ -2,7 +2,8 @@
 
 //定义有哪些状态, 以电梯做示例
 enum class ElevatorState {
-    kStop = 0,
+    kStopClosed = 0,
+    kStopOpened,
     kStopOpening,
     kStopClosing,
     kRunning,

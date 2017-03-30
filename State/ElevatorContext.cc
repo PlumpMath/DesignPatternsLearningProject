@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "ElevatorContext.h"
-#include "StopState.h"
+#include "ClosedState.h"
 #include "RunningState.h"
 #include "OpeningState.h"
 #include "ClosingState.h"
+#include "OpenedState.h"
 using namespace std;
 
 ElevatorContext::ElevatorContext() : ElevatorContext(0, 1) {
@@ -15,11 +16,12 @@ ElevatorContext::ElevatorContext(int min_floor, int max_floor) :
 {
     assert(max_floor > min_floor);
 
-    istates_map_.insert({ ElevatorState::kStop, new StopState() });
+    istates_map_.insert({ ElevatorState::kStopClosed, new ClosedState() });
+    istates_map_.insert({ ElevatorState::kStopOpened, new OpenedState() });
     istates_map_.insert({ ElevatorState::kStopClosing, new ClosingState() });
     istates_map_.insert({ ElevatorState::kStopOpening, new OpeningState() });
     istates_map_.insert({ ElevatorState::kRunning, new RunningState() });
-    istate_ = istates_map_[ElevatorState::kStop];   //initialize with kStop
+    istate_ = istates_map_[ElevatorState::kStopClosed];   //initialize with kStop
 
     actions_map_.insert({ ElevatorButtonAction::kOpenPressed, &IState::Open });
     actions_map_.insert({ ElevatorButtonAction::kClosePressed, &IState::Close });
@@ -89,7 +91,8 @@ void ElevatorContext::EngineProc(ElevatorContext* param) {
 
     //for STATE output
     map<ElevatorState, string> ev_state_map;
-    ev_state_map[ElevatorState::kStop] = "STOP";
+    ev_state_map[ElevatorState::kStopClosed] = "CLOSED";
+    ev_state_map[ElevatorState::kStopOpened] = "OPENED"
     ev_state_map[ElevatorState::kStopClosing] = "CLOSING";
     ev_state_map[ElevatorState::kStopOpening] = "OPENING";
     ev_state_map[ElevatorState::kRunning] = "RUNNING";

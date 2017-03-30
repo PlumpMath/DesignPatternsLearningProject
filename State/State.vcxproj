@@ -148,16 +148,18 @@
     <ClInclude Include="ClosingState.h" />
     <ClInclude Include="ElevatorContext.h" />
     <ClInclude Include="IState.h" />
+    <ClInclude Include="OpenedState.h" />
     <ClInclude Include="OpeningState.h" />
     <ClInclude Include="RunningState.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="StopState.h" />
+    <ClInclude Include="ClosedState.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClosingState.cc" />
     <ClCompile Include="ElevatorContext.cc" />
     <ClCompile Include="IState.cc" />
+    <ClCompile Include="OpenedState.cc" />
     <ClCompile Include="OpeningState.cc" />
     <ClCompile Include="RunningState.cc" />
     <ClCompile Include="State.cpp" />
@@ -167,7 +169,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="StopState.cc" />
+    <ClCompile Include="ClosedState.cc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
