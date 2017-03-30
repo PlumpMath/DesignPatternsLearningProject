@@ -21,6 +21,12 @@
 #include <map>
 #include <algorithm>
 #include <functional>
+#include <thread>
+#include <atomic>
+#include <queue>
+#include <mutex>
+#include <chrono>
+#include <condition_variable>
 #ifdef _MSC_VER
 #include <conio.h>
 #endif

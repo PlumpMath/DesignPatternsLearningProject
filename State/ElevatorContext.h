@@ -12,11 +12,33 @@ public:
     ~ElevatorContext();
 
 public:
-    void Action(ElevatorButtonAction act);
-    ElevatorState curr_state() const { return istate_->curr_state(); }
+    //启动/停止 Elevator Engine
+    void PowerOn();
+    void PowerOff();
 
+    //Action缓存的线程安全操作接口
+    void PushAction(ElevatorButtonAction act);
+    bool PopAction(ElevatorButtonAction& act);
+    std::size_t ActionsQueueSize();
+    void WaitAction();
+
+    //执行实际的动作
+    void Action(ElevatorButtonAction act);
+
+    //状态读取
+    ElevatorState curr_state() const { return istate_->curr_state(); }
     int curr_floor()const { return curr_floor_; }
 
+    bool engine_on()const { return engine_on_; }
+private:
+    std::atomic<bool> engine_on_ {false};
+    std::thread* engine_ {nullptr};
+    static void EngineProc(ElevatorContext*);
+
+    //Action缓存的队列
+    std::queue<ElevatorButtonAction> actions_queue_;
+    std::mutex actions_queue_mutex_;
+    std::condition_variable actions_cond_;
 private:
     int curr_floor_;
 
