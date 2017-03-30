@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer", "Observer\Observer.csproj", "{D783E064-F387-41F1-81AB-CCBAAC4D6F37}"
 EndProject
@@ -15,6 +15,8 @@ EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "common_lib_c_unit_test", "common_lib_c_unit_test\common_lib_c_unit_test.pyproj", "{D078DA6C-1EA8-46A7-B64D-F612C9FAFB80}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Observer_by.NetAPI", "Observer_by.NetAPI\Observer_by.NetAPI.csproj", "{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "State", "State\State.vcxproj", "{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +80,16 @@ Global
 		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|x64.Build.0 = Release|Any CPU
 		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|x86.ActiveCfg = Release|Any CPU
 		{2CB06CFE-FD90-4A18-A066-EE6BF028D9DB}.Release|x86.Build.0 = Release|Any CPU
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Debug|x64.ActiveCfg = Debug|x64
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Debug|x64.Build.0 = Debug|x64
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Debug|x86.ActiveCfg = Debug|Win32
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Debug|x86.Build.0 = Debug|Win32
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Release|Any CPU.ActiveCfg = Release|Win32
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Release|x64.ActiveCfg = Release|x64
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Release|x64.Build.0 = Release|x64
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Release|x86.ActiveCfg = Release|Win32
+		{EAEE0C54-3E0C-4EF6-A499-61D984A205BD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
