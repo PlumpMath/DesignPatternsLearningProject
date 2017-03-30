@@ -22,9 +22,12 @@ int main()
     ev_state_map[ElevatorState::kStopOpening] = "OPENING";
     ev_state_map[ElevatorState::kRunning] = "RUNNING";
 
-    cout << "Please press any Action [" << kElevatorOpenString << "|" << kElevatorCloseString << "] for Elevator..." << endl;
 
-    ElevatorContext ev;
+    ElevatorContext ev(-2, 20);
+    cout << "Please press any Action [" << kElevatorOpenString << "|" << kElevatorCloseString 
+        << "] for this Elevator (Floor " << ev.kMinFloor << "," << ev.kMaxFloor << " )..." << endl;
+    cout << "Init State: " << ev_state_map[ev.curr_state()] << ", Floor: " << ev.curr_floor() << endl;
+
     while (true){
         string s;
         cin >> s;
@@ -36,7 +39,7 @@ int main()
         }
         else {
             ev.Action(it->second);
-            cout << ev_state_map[ev.curr_state()] << endl;
+            cout << ev_state_map[ev.curr_state()] << ", " << ev.curr_floor() << endl;
         }
     }
         

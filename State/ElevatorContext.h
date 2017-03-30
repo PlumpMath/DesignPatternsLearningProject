@@ -7,13 +7,25 @@
 class ElevatorContext
 {
 public:
-    ElevatorContext();
+    explicit ElevatorContext(int min_floor, int max_floor);
+    explicit ElevatorContext();
     ~ElevatorContext();
 
 public:
     void Action(ElevatorButtonAction act);
     ElevatorState curr_state() const { return istate_->curr_state(); }
 
+    int curr_floor()const { return curr_floor_; }
+
+private:
+    int curr_floor_;
+
+    int running_milliseconds_per_floor_ {2000};  //默认2s跑一层/开门/关门
+    int opening_closeing_milliseconds_ {3000};  //默认3s 开门/关门
+
+public:
+    const int kMaxFloor;
+    const int kMinFloor;
 private:
     IState *istate_{nullptr};
 

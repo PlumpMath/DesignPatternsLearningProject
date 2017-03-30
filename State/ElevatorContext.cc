@@ -6,8 +6,15 @@
 #include "ClosingState.h"
 using namespace std;
 
-ElevatorContext::ElevatorContext()
+ElevatorContext::ElevatorContext() : ElevatorContext(0, 1) {
+
+}
+
+ElevatorContext::ElevatorContext(int min_floor, int max_floor) :
+    kMaxFloor(max_floor), kMinFloor(min_floor), curr_floor_(min_floor)
 {
+    assert(max_floor > min_floor);
+
     istates_map_.insert({ ElevatorState::kStop, new StopState() });
     istates_map_.insert({ ElevatorState::kStopClosing, new ClosingState() });
     istates_map_.insert({ ElevatorState::kStopOpening, new OpeningState() });
