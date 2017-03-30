@@ -18,7 +18,10 @@ enum class ElevatorButtonAction {
 class IState
 {
 public:
-    virtual ElevatorState Handle(ElevatorButtonAction act) = 0;
+
+    virtual ElevatorState Open() = 0;
+    virtual ElevatorState Close() = 0;
+
     virtual ElevatorState curr_state() const = 0;
 };
 

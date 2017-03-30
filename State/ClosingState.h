@@ -8,7 +8,8 @@ public:
     ~ClosingState();
 
 public:
-    ElevatorState Handle(ElevatorButtonAction act) override;
+    ElevatorState Open() override;
+    ElevatorState Close() override;
     ElevatorState curr_state() const override { return ElevatorState::kStopClosing; };
 
 };

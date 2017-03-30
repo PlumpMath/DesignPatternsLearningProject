@@ -146,7 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClosingState.h" />
-    <ClInclude Include="Elevator.h" />
+    <ClInclude Include="ElevatorContext.h" />
     <ClInclude Include="IState.h" />
     <ClInclude Include="OpeningState.h" />
     <ClInclude Include="RunningState.h" />
@@ -156,7 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ClosingState.cc" />
-    <ClCompile Include="Elevator.cc" />
+    <ClCompile Include="ElevatorContext.cc" />
     <ClCompile Include="IState.cc" />
     <ClCompile Include="OpeningState.cc" />
     <ClCompile Include="RunningState.cc" />

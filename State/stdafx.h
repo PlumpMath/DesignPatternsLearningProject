@@ -17,5 +17,6 @@
 #include <string>
 #include <map>
 #include <algorithm>
+#include <functional>
 #include <conio.h>
 #include <assert.h>

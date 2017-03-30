@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "Elevator.h"
+#include "ElevatorContext.h"
 using namespace std;
 
 int main()
@@ -24,7 +24,7 @@ int main()
 
     cout << "Please press any Action [" << kElevatorOpenString << "|" << kElevatorCloseString << "] for Elevator..." << endl;
 
-    Elevator ev;
+    ElevatorContext ev;
     while (true){
         string s;
         cin >> s;

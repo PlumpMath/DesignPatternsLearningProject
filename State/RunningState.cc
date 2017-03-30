@@ -11,18 +11,10 @@ RunningState::~RunningState()
 {
 }
 
-ElevatorState RunningState::Handle(ElevatorButtonAction act) {
-    ElevatorState new_state = curr_state();
-    switch (act) {
-    case ElevatorButtonAction::kClosePressed:
-    case ElevatorButtonAction::kOpenPressed:
-        //ignore all actions
-        break;
-    default:
-        assert(0);
-        break;
-    }
+ElevatorState RunningState::Open() {
+    return curr_state();
+}
 
-    return new_state;
-
+ElevatorState RunningState::Close() {
+    return curr_state();
 }

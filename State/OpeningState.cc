@@ -11,23 +11,13 @@ OpeningState::~OpeningState()
 {
 }
 
-ElevatorState OpeningState::Handle(ElevatorButtonAction act) {
-    ElevatorState new_state = curr_state();
-    switch (act) {
-    case ElevatorButtonAction::kClosePressed:
-        //TODO: Do something to close elevator
 
-        //switch state
-        new_state = ElevatorState::kStopClosing;
-        break;
-    case ElevatorButtonAction::kOpenPressed:
-        //ignore 
-        break;
-    default:
-        assert(0);
-        break;
-    }
+ElevatorState OpeningState::Open() {
+    return curr_state();
+}
 
-    return new_state;
+ElevatorState OpeningState::Close() {
+    //TODO: Do something to close the door
 
+    return ElevatorState::kStopClosing;
 }

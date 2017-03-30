@@ -33,13 +33,13 @@
     <ClInclude Include="RunningState.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Elevator.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="OpeningState.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="ClosingState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ElevatorContext.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,13 +59,13 @@
     <ClCompile Include="RunningState.cc">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Elevator.cc">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="OpeningState.cc">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ClosingState.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ElevatorContext.cc">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
