@@ -92,7 +92,7 @@ void ElevatorContext::EngineProc(ElevatorContext* param) {
     //for STATE output
     map<ElevatorState, string> ev_state_map;
     ev_state_map[ElevatorState::kStopClosed] = "CLOSED";
-    ev_state_map[ElevatorState::kStopOpened] = "OPENED"
+    ev_state_map[ElevatorState::kStopOpened] = "OPENED";
     ev_state_map[ElevatorState::kStopClosing] = "CLOSING";
     ev_state_map[ElevatorState::kStopOpening] = "OPENING";
     ev_state_map[ElevatorState::kRunning] = "RUNNING";
