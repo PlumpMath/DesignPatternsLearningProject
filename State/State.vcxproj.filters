@@ -24,6 +24,24 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="IState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StopState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RunningState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Elevator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OpeningState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ClosingState.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -32,5 +50,26 @@
     <ClCompile Include="State.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="IState.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StopState.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RunningState.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Elevator.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="OpeningState.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ClosingState.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
