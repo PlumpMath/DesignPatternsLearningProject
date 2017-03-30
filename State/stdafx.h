@@ -5,11 +5,14 @@
 
 #pragma once
 
+#ifdef _MSC_VER
 #include "targetver.h"
+#endif
 
 #include <stdio.h>
+#ifdef _MSC_VER
 #include <tchar.h>
-
+#endif
 
 
 // TODO:  在此处引用程序需要的其他头文件
@@ -18,5 +21,8 @@
 #include <map>
 #include <algorithm>
 #include <functional>
+#ifdef _MSC_VER
 #include <conio.h>
+#endif
+#include <ctype.h>
 #include <assert.h>

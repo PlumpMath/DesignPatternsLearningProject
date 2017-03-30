@@ -28,7 +28,7 @@ int main()
     while (true){
         string s;
         cin >> s;
-        transform(s.begin(), s.end(), s.begin(), toupper);
+        transform(s.begin(), s.end(), s.begin(), ::toupper);
 
         auto it = ev_action_map.find(s);
         if (it == ev_action_map.end()) {
