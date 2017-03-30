@@ -1,56 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="IState" Collapsed="true">
-    <Position X="3.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>IState.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="StopState">
-    <Position X="0.5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAgAQAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAIAAA=</HashCode>
-      <FileName>StopState.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="RunningState">
-    <Position X="5" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAgAAAAAAAAAAAAAAAAAAIAAAAAAAAIAAA=</HashCode>
-      <FileName>RunningState.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Elevator">
-    <Position X="9.75" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAgACAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAQ=</HashCode>
-      <FileName>Elevator.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="OpeningState">
-    <Position X="2.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAgAAAAgAAAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>OpeningState.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="ClosingState">
-    <Position X="7.25" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAQAAABAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAQAAAJAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>ClosingState.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ElevatorContext">
+    <Position X="11.25" Y="0.5" Width="2.25" />
+    <NestedTypes>
+      <Typedef Name="ElevatorContext::IStateFunc_Action" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ElevatorContext.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAgAAEAAAAQAAAAAIAAAAAAAAEIAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ElevatorContext.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IState">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>IState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpeningState">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAgAAAIAAAAAAgAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>OpeningState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RunningState">
+    <Position X="2.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAgIAAAAAAAAAAAAAAAAAAAAAAAAACIAAA=</HashCode>
+      <FileName>RunningState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StopState">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAQAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACIAAA=</HashCode>
+      <FileName>StopState.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="ElevatorState">
-    <Position X="11.5" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAAI=</HashCode>
       <FileName>IState.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ElevatorButtonAction">
-    <Position X="9.75" Y="0.5" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IState.h</FileName>
