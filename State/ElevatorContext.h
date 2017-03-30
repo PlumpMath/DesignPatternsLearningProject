@@ -19,7 +19,8 @@ private:
 
     //TODO: Use std::function<> to replace the function pointer?
     typedef ElevatorState(IState::* IStateFunc_Action)();   //执行成员函数的函数指针, 用于动态绑定调用不同对象的函数
-    std::map<ElevatorButtonAction, IStateFunc_Action> actions_;
+    std::map<ElevatorButtonAction, IStateFunc_Action> actions_map_;
 
+    std::map<ElevatorState, IState*> istates_map_;
 };
 

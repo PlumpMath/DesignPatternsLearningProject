@@ -8,45 +8,34 @@ using namespace std;
 
 ElevatorContext::ElevatorContext()
 {
-    istate_ = new StopState();
+    istates_map_.insert({ ElevatorState::kStop, new StopState() });
+    istates_map_.insert({ ElevatorState::kStopClosing, new ClosingState() });
+    istates_map_.insert({ ElevatorState::kStopOpening, new OpeningState() });
+    istates_map_.insert({ ElevatorState::kRunning, new RunningState() });
+    istate_ = istates_map_[ElevatorState::kStop];   //initialize with kStop
 
-    actions_.insert({ ElevatorButtonAction::kOpenPressed, &IState::Open });
-    actions_.insert({ ElevatorButtonAction::kClosePressed, &IState::Close });
+    actions_map_.insert({ ElevatorButtonAction::kOpenPressed, &IState::Open });
+    actions_map_.insert({ ElevatorButtonAction::kClosePressed, &IState::Close });
 }
 
 
 ElevatorContext::~ElevatorContext()
 {
-    if (istate_) {
-        delete istate_;
+    istate_ = nullptr;
+    for (auto &it : istates_map_) {
+        delete it.second;
     }
+    istates_map_.clear();
+
+    actions_map_.clear();
 }
 
 void ElevatorContext::Action(ElevatorButtonAction act) {
     assert(istate_);
 
-    IStateFunc_Action func = actions_[act];
+    IStateFunc_Action func = actions_map_[act];
     ElevatorState next_state = (istate_->*func)();
     if (next_state != istate_->curr_state()) {
-        delete istate_;
-        istate_ = nullptr;
-
-        switch (next_state) {
-        case ElevatorState::kRunning:
-            istate_ = new RunningState();
-            break;
-        case ElevatorState::kStop:
-            istate_ = new StopState();
-            break;
-        case ElevatorState::kStopClosing:
-            istate_ = new ClosingState();
-            break;
-        case ElevatorState::kStopOpening:
-            istate_ = new OpeningState();
-            break;
-        default:
-            //cout << "Not implemented" << endl;
-            break;
-        }
+        istate_ = istates_map_[next_state];
     }
 }
