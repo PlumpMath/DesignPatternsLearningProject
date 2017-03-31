@@ -19,6 +19,7 @@ enum class ElevatorButtonAction {
 class IState
 {
 public:
+    virtual ~IState() = 0;  //纯虚析构, 必须有定义(函数体), 同样可以调用
 
     virtual ElevatorState Open() = 0;
     virtual ElevatorState Close() = 0;
