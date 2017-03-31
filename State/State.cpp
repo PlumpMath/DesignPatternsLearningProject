@@ -15,13 +15,20 @@ int main()
     ev_action_map[kElevatorCloseString] = ElevatorButtonAction::kClosePressed;
     ev_action_map[kElevatorOpenString] = ElevatorButtonAction::kOpenPressed;
 
+    //for STATE output
+    map<ElevatorState, string> ev_state_map;
+    ev_state_map[ElevatorState::kStopClosed] = "CLOSED";
+    ev_state_map[ElevatorState::kStopOpened] = "OPENED";
+    ev_state_map[ElevatorState::kStopClosing] = "CLOSING";
+    ev_state_map[ElevatorState::kStopOpening] = "OPENING";
+    ev_state_map[ElevatorState::kRunning] = "RUNNING";
 
 
     ElevatorContext ev(-2, 20);
     cout << "Please press [" << kElevatorOpenString << "|" << kElevatorCloseString 
         << "] for this Elevator (Floor " << ev.kMinFloor << "," << ev.kMaxFloor << " ) ..." << endl;
     cout << "       press [QUIT|EXIT ] if want to quit" << endl;
-    ev.PowerOn();
+    cout << "Init State: " << ev_state_map[ev.curr_state()] << ", Floor: " << ev.curr_floor() << endl;
 
     while (true) {
         string s;
@@ -36,12 +43,11 @@ int main()
             //ignore this input
         }
         else {
-            ev.PushAction(it->second);
-            //cout << ev_state_map[ev.curr_state()] << ", " << ev.curr_floor() << endl;
+            ev.Action(it->second);
+            cout << ev_state_map[ev.curr_state()] << ", " << ev.curr_floor() << endl;
         }
     }
         
-    ev.PowerOff();
     return 0;
 }
 
