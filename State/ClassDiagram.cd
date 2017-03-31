@@ -8,7 +8,10 @@
     </TypeIdentifier>
   </Class>
   <Class Name="ElevatorContext">
-    <Position X="11.25" Y="0.5" Width="2.25" />
+    <Position X="12" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Typedef Name="ElevatorContext::IStateFunc_Action" Collapsed="true">
         <TypeIdentifier>
@@ -17,12 +20,12 @@
       </Typedef>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAgAAEAAAAQAAAAAIAAAAAAAAEIAAAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>ICUgAAMAAEAQAAAAApAAACAAQAMIAUAAQIAAACAgEAQ=</HashCode>
       <FileName>ElevatorContext.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IState">
-    <Position X="3.75" Y="0.5" Width="1.5" />
+    <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>IState.h</FileName>
@@ -42,22 +45,29 @@
       <FileName>RunningState.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="StopState">
+  <Class Name="ClosedState">
     <Position X="5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAQAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACIAAA=</HashCode>
-      <FileName>StopState.h</FileName>
+      <HashCode>AAAgAAAAAAAAIAAAAAAAAAAAIAAAAAAAAAAAAACAACA=</HashCode>
+      <FileName>ClosedState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OpenedState">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAQAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACAQAA=</HashCode>
+      <FileName>OpenedState.h</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="ElevatorState">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAEAAAgAAAAAACAAAAAAAAAAI=</HashCode>
       <FileName>IState.h</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="ElevatorButtonAction">
-    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IState.h</FileName>
